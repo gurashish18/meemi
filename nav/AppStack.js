@@ -13,10 +13,10 @@ import WishlistScreen from '../Screens/WishlistScreen'
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator();
 
-const ProductStack = () => {
+const HomeStack = () => {
     return (
             <Stack.Navigator screenOptions={{headerShown: false}}>
-                    <Stack.Screen name="Categories" component={CategoriesScreen} />
+                    <Stack.Screen name="Home" component={HomeScreen} />
                     <Stack.Screen name="Products" component={ProductsScreen} />
                     <Stack.Screen name="Product" component={ProductScreen} /> 
                     <Stack.Screen name="Wishlist" component={WishlistScreen} /> 
@@ -27,7 +27,7 @@ const ProductStack = () => {
 const AppStack = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Categories Screen"
+            initialRouteName="Home Screen"
             screenOptions={{
                 tabBarActiveTintColor: '#000000',
                 headerShown: false,
@@ -35,7 +35,7 @@ const AppStack = () => {
             }}>
                 <Tab.Screen
                     name="Home Screen"
-                    component={HomeScreen}
+                    component={HomeStack}
                     options={{
                         tabBarLabel: 'Home',
                         tabBarIcon: ({ color, size }) => (
@@ -44,7 +44,7 @@ const AppStack = () => {
                 }}/>
                 <Tab.Screen
                     name="Categories Screen"
-                    component={ProductStack}
+                    component={CategoriesScreen}
                     options={{
                         tabBarLabel: 'Categories',
                         tabBarIcon: ({ color, size }) => (
