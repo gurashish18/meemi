@@ -55,7 +55,9 @@ const ProductScreen = ({ route: { params: { item } }}) => {
       }
     return (
         <ScrollView style={{backgroundColor:'#ffffff', paddingHorizontal: 10}}>
-            <ImageSlider data={item.image}/>
+            <View style={{borderBottomWidth: 0.5}}>
+                <ImageSlider data={item.image}/>    
+            </View>
 
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
                 <View>
@@ -67,16 +69,16 @@ const ProductScreen = ({ route: { params: { item } }}) => {
             <Text style={{color: 'grey', fontSize: 16}}>{item.description}</Text>
 
             <View style={{marginVertical: 10, flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={{color: '#000000', fontSize: 18,  textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>₹{item.price}</Text>
-                <Text style={{color: '#39C16C', fontSize: 20, fontWeight: 'bold', marginLeft: 20}}>₹{item.price - item.price * (item.discount/100)}</Text>
-                <Text style={{color: '#F72121', fontSize: 20, marginLeft: 20, fontWeight: 'bold'}}>{item.discount}% OFF</Text>
+                <Text style={{color: 'grey', fontSize: 18,  textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>₹{item.price}</Text>
+                <Text style={{color: '#000000', fontSize: 18, fontWeight: 'bold', marginLeft: 20}}>₹{item.price - item.price * (item.discount/100)}</Text>
+                <Text style={{color: '#F72121', fontSize: 18, marginLeft: 20, fontWeight: 'bold'}}>{item.discount}% OFF</Text>
             </View>
             <Text style={{color: '#009A6C', borderBottomWidth: 0.25}}>including all taxes</Text>
 
             <Text style={{color: '#000000', fontSize: 20, fontWeight: 'bold', marginTop: 10}}>Select Size</Text>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: 10, marginBottom: 20}}>
                 {sizes.map((item) => (
-                    <View key={item.id} style={{borderWidth: 1, borderRadius: 30, paddingHorizontal: 15, paddingVertical: 5, marginBottom: 10}}>
+                    <View key={item.id} style={{borderWidth: 1, borderRadius: 150, overflow: 'hidden', height: 40, width: 40, alignItems: 'center',justifyContent: 'center'}}>
                         <Text style={{color: '#000000', fontSize: 20}}>{item.size}</Text>
                     </View>                      
                 ))}
@@ -91,7 +93,7 @@ const ProductScreen = ({ route: { params: { item } }}) => {
                     <Text style={{fontSize:20, color: '#ffffff', fontWeight: 'bold'}}>{item.rating.rate}</Text>
                     <Icon name="star" style={{color: '#ffffff'}} size={30}/>
                 </View>
-                <Text style={{fontSize: 20, color: '#000000', fontWeight: 'bold'}}>{item.rating.rate} ratings and {item.rating.count} reviews</Text>
+                <Text style={{fontSize: 16, color: '#000000',}}>{item.rating.rate} ratings and {item.rating.count} reviews</Text>
             </View>
         </ScrollView>
     )
